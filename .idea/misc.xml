@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/build-a-restful-web-service/pom.xml" />
         <option value="$PROJECT_DIR$/consuming-a-restful-web-service/pom.xml" />
+        <option value="$PROJECT_DIR$/uploading-files/pom.xml" />
       </list>
     </option>
   </component>

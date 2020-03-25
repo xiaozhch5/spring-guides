@@ -3,5 +3,6 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/build-a-restful-web-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/consuming-a-restful-web-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/uploading-files/src/main/java" charset="UTF-8" />
   </component>
 </project>

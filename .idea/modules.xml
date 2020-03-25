@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/build-a-restful-web-service/build-a-restful-web-service.iml" filepath="$PROJECT_DIR$/build-a-restful-web-service/build-a-restful-web-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/consuming-a-restful-web-service/consuming-a-restful-web-service.iml" filepath="$PROJECT_DIR$/consuming-a-restful-web-service/consuming-a-restful-web-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/uploading-files/uploading-files.iml" filepath="$PROJECT_DIR$/uploading-files/uploading-files.iml" />
     </modules>
   </component>
 </project>
