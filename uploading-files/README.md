@@ -155,4 +155,5 @@ spring.servlet.multipart.max-request-size=128000KB
 直接运行`UfApplication.java`运行项目。
 
 在浏览器中打开`localhost:8080`可以看到：
+
 ![image](https://github.com/xiaozhch5/spring-guides/blob/master/uploading-files/images/upload.png)
