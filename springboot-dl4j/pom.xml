@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.5.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.weilian</groupId>
+    <artifactId>springboot-dl4j</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>springboot-dl4j</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+
+        <!-- Change the nd4j.backend property to nd4j-cuda-9.2-platform,nd4j-cuda-10.0-platform or nd4j-cuda-10.1-platform to use CUDA GPUs -->
+        <nd4j.backend>nd4j-native-platform</nd4j.backend>
+        <!--        <nd4j.backend>nd4j-cuda-10.2-platform</nd4j.backend>-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <shadedClassifier>bin</shadedClassifier>
+
+
+        <java.version>1.8</java.version>
+        <nd4j.version>1.0.0-beta6</nd4j.version>
+        <dl4j.version>1.0.0-beta6</dl4j.version>
+        <datavec.version>1.0.0-beta6</datavec.version>
+        <arbiter.version>1.0.0-beta6</arbiter.version>
+        <rl4j.version>1.0.0-beta6</rl4j.version>
+
+        <!-- Scala binary version: DL4J's Spark and UI functionality are released with both Scala 2.10 and 2.11 support -->
+        <scala.binary.version>2.11</scala.binary.version>
+        <spark.version>2.4.3</spark.version>
+
+        <hadoop.version>2.2.0</hadoop.version>  <!-- Hadoop version used by Spark 1.6.3 and 2.2.1 (and likely others) -->
+        <guava.version>19.0</guava.version>
+        <logback.version>1.1.7</logback.version>
+        <jfreechart.version>1.0.13</jfreechart.version>
+        <jcommon.version>1.0.23</jcommon.version>
+        <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
+        <maven-shade-plugin.version>2.4.3</maven-shade-plugin.version>
+        <exec-maven-plugin.version>1.4.0</exec-maven-plugin.version>
+        <maven.minimum.version>3.3.1</maven.minimum.version>
+        <javafx.version>2.2.3</javafx.version>
+<!--        <javafx.runtime.lib.jar>${env.JAVAFX_HOME}/jfxrt.jar</javafx.runtime.lib.jar>-->
+        <aws.sdk.version>1.11.109</aws.sdk.version>
+        <jackson.version>2.5.1</jackson.version>
+        <scala.plugin.version>3.2.2</scala.plugin.version>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+
+        <!-- ND4J backend. You need one in every DL4J project. Normally define artifactId as either nd4j-native-platform or nd4j-cuda-X.X-platform to use CUDA GPUs (check parent pom for supported cuda versions) -->
+        <dependency>
+            <groupId>org.nd4j</groupId>
+            <artifactId>${nd4j.backend}</artifactId>
+            <version>${nd4j.version}</version>
+        </dependency>
+
+        <!-- Core DL4J functionality -->
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-nlp</artifactId>
+            <version>${dl4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-zoo</artifactId>
+            <version>${dl4j.version}</version>
+        </dependency>
+
+        <!-- deeplearning4j-ui is used for visualization: see http://deeplearning4j.org/visualization -->
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-ui</artifactId>
+            <version>${dl4j.version}</version>
+        </dependency>
+
+        <!-- ParallelWrapper & ParallelInference live here -->
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-parallel-wrapper</artifactId>
+            <version>${dl4j.version}</version>
+        </dependency>
+
+        <!-- Next 2: used for MapFileConversion Example. Note you need *both* together -->
+        <dependency>
+            <groupId>org.datavec</groupId>
+            <artifactId>datavec-hadoop</artifactId>
+            <version>${datavec.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hadoop</groupId>
+            <artifactId>hadoop-common</artifactId>
+            <version>${hadoop.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>jdk.tools</groupId>
+                    <artifactId>jdk.tools</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+        <!-- Arbiter - used for hyperparameter optimization (grid/random search) -->
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>arbiter-deeplearning4j</artifactId>
+            <version>${arbiter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>arbiter-ui</artifactId>
+            <version>${arbiter.version}</version>
+        </dependency>
+
+        <!-- datavec-data-codec: used only in video example for loading video data -->
+        <dependency>
+            <artifactId>datavec-data-codec</artifactId>
+            <groupId>org.datavec</groupId>
+            <version>${datavec.version}</version>
+        </dependency>
+
+        <!-- Used in the feedforward/classification/MLP* and feedforward/regression/RegressionMathFunctions example -->
+        <dependency>
+            <groupId>jfree</groupId>
+            <artifactId>jfreechart</artifactId>
+            <version>${jfreechart.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jfree</groupId>
+            <artifactId>jcommon</artifactId>
+            <version>${jcommon.version}</version>
+        </dependency>
+
+        <!-- Used for downloading data in some of the examples -->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.deeplearning4j.examples</groupId>
+            <artifactId>shared-utilities</artifactId>
+<!--            <version>${project.version}</version>-->
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
