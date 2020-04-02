@@ -1,4 +1,4 @@
-package com.weilian.adwj.jparepository;
+package com.weilian.adwj.service;
 
 
 import lombok.Data;
@@ -14,19 +14,19 @@ public class Customer {
 
     // @Id表示数据库主键
     @Id
-    private Long id;
+    private String id;
 
     private String firstName;
 
     private String lastName;
 
-    public Customer(Long id, String firstName, String lastName){
+    public Customer(String id, String firstName, String lastName){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public Customer(){
+    protected Customer(){
 
     }
 
