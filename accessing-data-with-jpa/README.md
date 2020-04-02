@@ -4,6 +4,17 @@
 通过构建一个应用将`Customer` POJOs保存到基于内存的数据库中。
 
 ## 指引
+
+首先在本地数据库创建spring-guides数据库以及customer表。
+```sql
+create table `customer`(
+    `id`varchar(32) not null, 
+    `first_name` varchar(128) not null,
+    `last_name` varchar(128) not null, 
+    primary key (`id`)
+) comment 'customer';
+```
+
 ### 创建一个Customer类
 类中有三个属性：`id`, `firstName`, `lastName`；两个构造器。
 ```java
