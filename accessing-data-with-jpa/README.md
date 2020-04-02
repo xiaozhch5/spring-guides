@@ -34,13 +34,13 @@ public class Customer {
 
     // @Id表示数据库主键
     @Id
-    private Long id;
+    private String id;
 
     private String firstName;
 
     private String lastName;
 
-    public Customer(Long id, String firstName, String lastName){
+    public Customer(String id, String firstName, String lastName){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -135,11 +135,11 @@ public class AdwjApplication {
     public CommandLineRunner demo(CustomerRepository repository) {
         return (args) -> {
             // save a few customers
-            repository.save(new Customer(1L, "Bauer", "xiao1"));
-            repository.save(new Customer(2L, "O'Brian", "xiao2"));
-            repository.save(new Customer(3L, "Bauer", "xiao3"));
-            repository.save(new Customer(4L, "Palmer", "xiao4"));
-            repository.save(new Customer(5L, "Dessler", "xiao5"));
+            repository.save(new Customer("1", "Bauer", "xiao1"));
+            repository.save(new Customer("2", "O'Brian", "xiao2"));
+            repository.save(new Customer("3", "Bauer", "xiao3"));
+            repository.save(new Customer("4", "Palmer", "xiao4"));
+            repository.save(new Customer("5", "Dessler", "xiao5"));
 
             // fetch all customers
             log.info("Customers found with findAll():");
@@ -150,7 +150,7 @@ public class AdwjApplication {
             log.info("");
 
             // fetch an individual customer by ID
-            Customer customer = repository.findById(1L);
+            Customer customer = repository.findById("1");
             log.info("Customer found with findById(1L):");
             log.info("--------------------------------");
             log.info(customer.toString());
@@ -159,7 +159,7 @@ public class AdwjApplication {
             // fetch customers by last name
             log.info("Customer found with findByLastName('Bauer'):");
             log.info("--------------------------------------------");
-            repository.findByLastName("Bauer").forEach(bauer -> {
+            repository.findByLastName("xiao5").forEach(bauer -> {
                 log.info(bauer.toString());
             });
             // for (Customer bauer : repository.findByLastName("Bauer")) {
