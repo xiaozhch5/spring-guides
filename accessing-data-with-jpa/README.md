@@ -86,7 +86,6 @@ Spring Data JPA also lets you define other query methods by declaring their meth
 In a typical Java application, you might expect to write a class that implements CustomerRepository. However, that is what makes Spring Data JPA so powerful: You need not write an implementation of the repository interface. Spring Data JPA creates an implementation when you run the application.
 
 Now you can wire up this example and see what it looks like!
-
 ```java
 package com.weilian.adwj.jparepository;
 
