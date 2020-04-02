@@ -6,6 +6,13 @@
         <option value="$PROJECT_DIR$/build-a-restful-web-service/pom.xml" />
         <option value="$PROJECT_DIR$/consuming-a-restful-web-service/pom.xml" />
         <option value="$PROJECT_DIR$/uploading-files/pom.xml" />
+        <option value="$PROJECT_DIR$/build-a-restful-web-service-with-spring-boot-actuator/pom.xml" />
+        <option value="$PROJECT_DIR$/springboot-dl4j/pom.xml" />
+        <option value="$PROJECT_DIR$/accessing-data-with-jpa/pom.xml" />
+        <option value="$PROJECT_DIR$/jwt-authentication/pom.xml" />
+        <option value="$PROJECT_DIR$/messaging-with-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/scheduling-tasks/pom.xml" />
+        <option value="$PROJECT_DIR$/securing-a-web-application/pom.xml" />
       </list>
     </option>
   </component>

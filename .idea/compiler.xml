@@ -8,20 +8,49 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="build-a-restful-web-service" />
-        <module name="uploading-files" />
+        <module name="mwr" />
+        <module name="sawa" />
+        <module name="carws" />
+        <module name="authentication" />
+        <module name="barwswsba" />
+        <module name="st" />
         <module name="consuming-a-restful-web-service" />
+        <module name="uploading-files" />
+        <module name="uf" />
+        <module name="adwj" />
+        <module name="springboot-dl4j" />
+        <module name="barws" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="adwj" target="1.8" />
+      <module name="authentication" target="1.8" />
+      <module name="barws" target="1.8" />
+      <module name="barwswsba" target="1.8" />
       <module name="build-a-restful-web-service" target="1.8" />
+      <module name="carws" target="1.8" />
       <module name="consuming-a-restful-web-service" target="1.8" />
+      <module name="mwr" target="1.8" />
+      <module name="sawa" target="1.8" />
+      <module name="springboot-dl4j" target="1.8" />
+      <module name="st" target="1.8" />
+      <module name="uf" target="1.8" />
       <module name="uploading-files" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="adwj" options="-parameters" />
+      <module name="authentication" options="-parameters" />
+      <module name="barws" options="-parameters" />
       <module name="build-a-restful-web-service" options="-parameters" />
+      <module name="carws" options="-parameters" />
       <module name="consuming-a-restful-web-service" options="-parameters" />
+      <module name="mwr" options="-parameters" />
+      <module name="sawa" options="-parameters" />
+      <module name="springboot-dl4j" options="-parameters" />
+      <module name="st" options="-parameters" />
+      <module name="uf" options="-parameters" />
       <module name="uploading-files" options="-parameters" />
     </option>
   </component>

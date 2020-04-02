@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/accessing-data-with-jpa/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/accessing-data-with-jpa/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/build-a-restful-web-service-with-spring-boot-actuator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/build-a-restful-web-service-with-spring-boot-actuator/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/build-a-restful-web-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/consuming-a-restful-web-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jwt-authentication/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jwt-authentication/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/messaging-with-redis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/messaging-with-redis/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/scheduling-tasks/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/securing-a-web-application/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/securing-a-web-application/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-dl4j/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-dl4j/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/uploading-files/src/main/java" charset="UTF-8" />
   </component>
 </project>
