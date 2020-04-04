@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/messaging-with-redis/pom.xml" />
         <option value="$PROJECT_DIR$/scheduling-tasks/pom.xml" />
         <option value="$PROJECT_DIR$/securing-a-web-application/pom.xml" />
+        <option value="$PROJECT_DIR$/accessing-relational-data-using-jdbc-with-spring/pom.xml" />
       </list>
     </option>
   </component>

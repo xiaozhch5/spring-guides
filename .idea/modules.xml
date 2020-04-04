@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/accessing-relational-data-using-jdbc-with-spring/accessing-relational-data-using-jdbc-with-spring.iml" filepath="$PROJECT_DIR$/accessing-relational-data-using-jdbc-with-spring/accessing-relational-data-using-jdbc-with-spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/accessing-data-with-jpa/adwj.iml" filepath="$PROJECT_DIR$/accessing-data-with-jpa/adwj.iml" />
       <module fileurl="file://$PROJECT_DIR$/jwt-authentication/authentication.iml" filepath="$PROJECT_DIR$/jwt-authentication/authentication.iml" />
       <module fileurl="file://$PROJECT_DIR$/build-a-restful-web-service/barws.iml" filepath="$PROJECT_DIR$/build-a-restful-web-service/barws.iml" />

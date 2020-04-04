@@ -9,20 +9,22 @@
         <outputRelativeToContentRoot value="true" />
         <module name="build-a-restful-web-service" />
         <module name="mwr" />
+        <module name="uf" />
+        <module name="accessing-relational-data-using-jdbc-with-spring" />
+        <module name="adwj" />
+        <module name="st" />
+        <module name="springboot-dl4j" />
         <module name="sawa" />
-        <module name="carws" />
         <module name="authentication" />
         <module name="barwswsba" />
-        <module name="st" />
-        <module name="consuming-a-restful-web-service" />
-        <module name="uploading-files" />
-        <module name="uf" />
-        <module name="adwj" />
-        <module name="springboot-dl4j" />
+        <module name="carws" />
         <module name="barws" />
+        <module name="uploading-files" />
+        <module name="consuming-a-restful-web-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="accessing-relational-data-using-jdbc-with-spring" target="1.8" />
       <module name="adwj" target="1.8" />
       <module name="authentication" target="1.8" />
       <module name="barws" target="1.8" />
@@ -40,6 +42,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="accessing-relational-data-using-jdbc-with-spring" options="-parameters" />
       <module name="adwj" options="-parameters" />
       <module name="authentication" options="-parameters" />
       <module name="barws" options="-parameters" />
