@@ -13,19 +13,26 @@ import lombok.Data;
 @Data
 public class Customer {
 
-    private String id;
+    private Long id;
 
-    private String firstName, secondName;
+    private String firstName, lastName;
+
+    public Customer(Long id, String firstName, String lastName){
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 
     @Override
     public String toString() {
         return "Customer{" +
                 "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
-                ", secondName='" + secondName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 '}';
     }
 }
+
 ```
 修改ArdujwsApplication.java文件，用于操作数据库。
 
