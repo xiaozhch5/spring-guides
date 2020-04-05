@@ -10,12 +10,13 @@
         <module name="build-a-restful-web-service" />
         <module name="mwr" />
         <module name="uf" />
-        <module name="accessing-relational-data-using-jdbc-with-spring" />
         <module name="adwj" />
-        <module name="st" />
         <module name="springboot-dl4j" />
+        <module name="st" />
+        <module name="accessing-relational-data-using-jdbc-with-spring" />
         <module name="sawa" />
         <module name="authentication" />
+        <module name="get-covid19-global-data" />
         <module name="barwswsba" />
         <module name="carws" />
         <module name="barws" />
@@ -32,6 +33,7 @@
       <module name="build-a-restful-web-service" target="1.8" />
       <module name="carws" target="1.8" />
       <module name="consuming-a-restful-web-service" target="1.8" />
+      <module name="get-covid19-global-data" target="1.8" />
       <module name="mwr" target="1.8" />
       <module name="sawa" target="1.8" />
       <module name="springboot-dl4j" target="1.8" />
@@ -49,6 +51,7 @@
       <module name="build-a-restful-web-service" options="-parameters" />
       <module name="carws" options="-parameters" />
       <module name="consuming-a-restful-web-service" options="-parameters" />
+      <module name="get-covid19-global-data" options="-parameters" />
       <module name="mwr" options="-parameters" />
       <module name="sawa" options="-parameters" />
       <module name="springboot-dl4j" options="-parameters" />

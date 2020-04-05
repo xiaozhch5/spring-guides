@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>全球疫情数据</title>
+    <link href="#" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+</head>
+<body>
+<h1 align="center">
+    全球疫情数据（分国家）
+</h1>
+<p align="center">数据来自美国霍普金斯大学官方公布数据，本页面一天自动更新两次</p>
+<div class="table-responsive">
+    <table class="table table-striped table-sm", align="center">
+        <thead>
+        <tr align="center">
+            <th>国家</th>
+            <th>确诊人数</th>
+            <th>死亡人数</th>
+            <th>Case-Fatality</th>
+            <th>Deaths/100k pop.</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr align="center" th:each="i:${covid}">
+            <td th:text="${i.getCountry()}"></td>
+            <td th:text="${i.getConfirmed()}"></td>
+            <td th:text="${i.getDeaths()}"></td>
+            <td th:text="${i.getCaseFatality()}"></td>
+            <td th:text="${i.getDeaths100k()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
