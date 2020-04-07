@@ -12,6 +12,10 @@
 
 前端页面可通过访问数据库内容获取疫情数据。
 ## Attention
+如果你觉得本项目对你有用的话，欢迎给个star呢。
+
+![7](img/7.gif)
+
 本人也是个springboot新手，项目中难免有些问题，欢迎大家指正，有兴趣的可以加一下我的微信，一起交流学习：
 ![6](img/6.jpg)
 
@@ -61,3 +65,6 @@ spring.jackson.serialization.indent_output=true
 ![4](img/4.png)
 &emsp; 本地浏览器访问： `http://localhost:8080`，可看到：
 ![5](img/5.png)
+## 感谢
+如果你觉得本项目对你有用的话，欢迎给个star呢。
+
