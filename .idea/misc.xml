@@ -18,6 +18,7 @@
         <option value="$PROJECT_DIR$/securing-a-web-application/pom.xml" />
         <option value="$PROJECT_DIR$/accessing-relational-data-using-jdbc-with-spring/pom.xml" />
         <option value="$PROJECT_DIR$/get-covid19-global-data/pom.xml" />
+        <option value="$PROJECT_DIR$/get-covid19-global-data-v2/pom.xml" />
       </list>
     </option>
   </component>

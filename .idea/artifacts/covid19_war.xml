@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="covid19:war">
+    <output-path>$PROJECT_DIR$/out/artifacts/covid19_war</output-path>
+    <root id="archive" name="covid19_war.war">
+      <element id="artifact" artifact-name="covid19:war exploded" />
+    </root>
+  </artifact>
+</component>

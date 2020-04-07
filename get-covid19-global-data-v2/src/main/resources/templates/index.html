@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>全球疫情数据</title>
+    <link href="#" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+</head>
+<body>
+<br>
+<h1 align="center">
+    全球各国家疫情数据
+</h1>
+
+<br>
+<div style="display: table; width: 100%; text-align: center;">
+    <strong><p align="center">数据来自美国霍普金斯大学官方公布数据</p></strong>
+    <p align="center">本页面每十五分钟更新一次,最近更新时间为</p>
+    <p th:text="${date.get(0)}" align="center"></p>
+</div>
+<HR style="border:1  double  #000000" width="80%"color=#987cb9 SIZE=20>
+
+<div style="display: table; width: 100%; text-align: center;">
+    <div style="display: table-cell; width: 7%; text-align: center;">
+        <p style="color: red;font-size: medium"></p>
+        <p style="color: red;font-size: medium"></p>
+    </div>
+
+    <div style="display: table-cell; width: 29%; text-align: center;">
+        <p style="color: red;font-size: medium">全球确诊人数</p>
+        <p style="color: red;font-size: medium" th:text="${cdr.get(0).getConfirmed()}"></p>
+    </div>
+    <div style="display: table-cell; width: 29%; text-align: center;">
+        <p style="font-size: large">全球死亡人数</p>
+        <p style="font-size: large" th:text="${cdr.get(0).getDeaths()}">
+        </p>
+    </div>
+
+
+    <div style="display: table-cell; width: 29%; text-align: center;">
+        <p style="color: green;font-size: medium">全球治愈人数</p>
+        <p style="color: green;font-size: medium" th:text="${cdr.get(0).getRecovered()}">
+        </p>
+    </div>
+    <div style="display: table-cell; width: 11.5%; text-align: center;">
+        <p style="color: red;font-size: medium"></p>
+        <p style="color: red;font-size: medium"></p>
+    </div>
+
+</div>
+
+<br>
+
+<div class="table-responsive">
+    <table class="table table-striped table-sm", align="center">
+        <thead>
+        <tr align="center">
+            <th>国家</th>
+            <th>确诊人数</th>
+            <th>死亡人数</th>
+            <th>现存确诊人数</th>
+            <th>治愈人数</th>
+            <th>更新时间</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr align="center" th:each="i:${covid}">
+            <td th:text="${i.getCountryRegion()}"></td>
+            <td th:text="${i.getConfirmed()}"></td>
+            <td th:text="${i.getDeaths()}"></td>
+            <td th:text="${i.getActive()}"></td>
+            <td th:text="${i.getRecovered()}"></td>
+            <td th:text="${i.getLastUpdate()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+
+
+<script>
+    function get_single_checked_val (name) {
+        var radio=document.getElementsByName(name);
+        var selectvalue=null;   //  selectvalue为radio中选中的值
+        for(var i=0;i<radio.length;i++){
+            if(radio[i].checked==true) {
+                selectvalue=radio[i].value;
+                break;
+            }
+        }
+        return selectvalue
+
+    }
+    function click1(){
+        var select_val1 = get_single_checked_val("num1")
+        console.log('select_val1 = ', select_val1)
+    }
+</script>
+
+</html>
