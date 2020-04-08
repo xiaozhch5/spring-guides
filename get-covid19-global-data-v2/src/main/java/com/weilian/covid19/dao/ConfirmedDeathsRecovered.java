@@ -13,6 +13,8 @@ public class ConfirmedDeathsRecovered {
     @Id
     private String confirmed;
 
+    private String active;
+
     private String deaths;
 
     private String recovered;
@@ -24,6 +26,7 @@ public class ConfirmedDeathsRecovered {
     public String toString() {
         return "ConfirmedDeathsRecovered{" +
                 "confirmed='" + confirmed + '\'' +
+                ", active='" + active + '\'' +
                 ", deaths='" + deaths + '\'' +
                 ", recovered='" + recovered + '\'' +
                 '}';

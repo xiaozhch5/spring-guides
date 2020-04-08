@@ -41,8 +41,8 @@ public class SchedulerTasks {
         jdbcTemplate.execute("CREATE TABLE template_date(temp_date VARCHAR(512))");
         jdbcTemplate.update("INSERT INTO template_date(temp_date) VALUES(?)", simpleDateFormat.format(date1));
 
-        String APP_ID = "";
-        String SECURITY_KEY = "";
+        String APP_ID = "20200406000413180";
+        String SECURITY_KEY = "g4tuhCQbJdXQFdMF9Dhv";
 
         TransApi transApi = new TransApi(APP_ID, SECURITY_KEY);
         Decode decode = new Decode();
@@ -69,11 +69,13 @@ public class SchedulerTasks {
             covid.setLongg(jsonObject1.get("Long_")==null? "null":jsonObject1.get("Long_").toString());
             covid.setRecovered(jsonObject1.get("Recovered").toString());
 
+//            System.out.println(transApi.getTransResult(jsonObject1.get("Country_Region").toString(), "auto", "zh"));
+
             // 调用百度翻译api将国家名称翻译为中文
             String countryRegion =
                     String.valueOf(JSON.parse(transApi.getTransResult(jsonObject1.get("Country_Region").toString(), "auto", "zh")
                             .split(":")[5].split("}")[0]));
-            covid.setCountryRegion(countryRegion);
+            covid.setCountryRegion(countryRegion=="台湾*"?"中国台湾":countryRegion);
 
             //现存确诊人数 确诊人数-死亡人数-治愈人数
             covid.setActive(String.valueOf(Long.valueOf(jsonObject1.get("Confirmed").toString()) -
@@ -107,9 +109,12 @@ public class SchedulerTasks {
                         "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)",
                             list.stream().map(name ->name.toString().split("\t")).collect(Collectors.toList()));
 
+        // 修改台湾为中国台湾
+        jdbcTemplate.execute("update covid set country_region = \"中国台湾\" where object_id = 166;");
+
         // 查询全球确诊人数
         jdbcTemplate.execute("DROP TABLE IF EXISTS confirmed_deaths_recovered");
-        jdbcTemplate.execute("CREATE TABLE confirmed_deaths_recovered(confirmed VARCHAR(512), deaths VARCHAR(512), recovered VARCHAR(512))");
-        jdbcTemplate.execute("INSERT INTO confirmed_deaths_recovered(confirmed, deaths, recovered) SELECT sum(confirmed), sum(deaths), sum(recovered) from covid");
+        jdbcTemplate.execute("CREATE TABLE confirmed_deaths_recovered(confirmed VARCHAR(512), active VARCHAR(512), deaths VARCHAR(512), recovered VARCHAR(512))");
+        jdbcTemplate.execute("INSERT INTO confirmed_deaths_recovered(confirmed, active, deaths, recovered) SELECT sum(confirmed), sum(active), sum(deaths), sum(recovered) from covid");
     }
 }

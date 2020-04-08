@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <title>全球疫情数据</title>
     <link href="#" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+        #allmap{width:100%;height:500px; align: center}
+        p{margin-left:5px; font-size:14px;}
+    </style>
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=WUyyGnd4NcFKwKo78u7NgWb0ncVa9AzB"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+    <script type="text/javascript" src="//api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+    <script src="//libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+
 </head>
-<body>
+
 <br>
 <h1 align="center">
     全球各国家疫情数据
@@ -20,36 +33,60 @@
 <HR style="border:1  double  #000000" width="80%"color=#987cb9 SIZE=20>
 
 <div style="display: table; width: 100%; text-align: center;">
-    <div style="display: table-cell; width: 7%; text-align: center;">
+    <div style="display: table-cell; width: 10%; text-align: center;">
         <p style="color: red;font-size: medium"></p>
         <p style="color: red;font-size: medium"></p>
     </div>
 
-    <div style="display: table-cell; width: 29%; text-align: center;">
-        <p style="color: red;font-size: medium">全球确诊人数</p>
+    <div style="display: table-cell; width: 20%; text-align: center;">
+        <p style="color: red;font-size: medium">全球累计确诊人数</p>
         <p style="color: red;font-size: medium" th:text="${cdr.get(0).getConfirmed()}"></p>
     </div>
-    <div style="display: table-cell; width: 29%; text-align: center;">
+
+    <div style="display: table-cell; width: 20%; text-align: center;">
+        <p style="color: red;font-size: medium">全球现存确诊人数</p>
+        <p style="color: red;font-size: medium" th:text="${cdr.get(0).getActive()}"></p>
+    </div>
+
+    <div style="display: table-cell; width: 20%; text-align: center;">
         <p style="font-size: large">全球死亡人数</p>
         <p style="font-size: large" th:text="${cdr.get(0).getDeaths()}">
         </p>
     </div>
-
-
-    <div style="display: table-cell; width: 29%; text-align: center;">
+    <div style="display: table-cell; width: 20%; text-align: center;">
         <p style="color: green;font-size: medium">全球治愈人数</p>
         <p style="color: green;font-size: medium" th:text="${cdr.get(0).getRecovered()}">
         </p>
     </div>
-    <div style="display: table-cell; width: 11.5%; text-align: center;">
+    <div style="display: table-cell; width: 10%; text-align: center;">
         <p style="color: red;font-size: medium"></p>
         <p style="color: red;font-size: medium"></p>
     </div>
 
 </div>
-
+<HR style="border:1  double  #000000" width="80%"color=#987cb9 SIZE=20>
 <br>
 
+<h2 align="center">
+    地区分布图
+</h2>
+<br>
+<br>
+
+<div align="center" style="width: 100%"><div id="allmap">
+</div></div>
+
+
+<br>
+<br>
+
+
+
+<h2 align="center">
+    详细数据表
+</h2>
+<br>
+<br>
 <div class="table-responsive">
     <table class="table table-striped table-sm", align="center">
         <thead>
@@ -62,18 +99,23 @@
             <th>更新时间</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="table">
         <tr align="center" th:each="i:${covid}">
-            <td th:text="${i.getCountryRegion()}"></td>
-            <td th:text="${i.getConfirmed()}"></td>
-            <td th:text="${i.getDeaths()}"></td>
-            <td th:text="${i.getActive()}"></td>
-            <td th:text="${i.getRecovered()}"></td>
+            <td th:text="${i.getCountryRegion()}" id="country"></td>
+            <td th:text="${i.getConfirmed()}" id="confirmed"></td>
+            <td th:text="${i.getDeaths()}" id="deaths"></td>
+            <td th:text="${i.getActive()}" id="active"></td>
+            <td th:text="${i.getRecovered()}" id="recovered"></td>
             <td th:text="${i.getLastUpdate()}"></td>
+            <td style="display: none" th:text="${i.getLongg()}" id="longg"></td>
+            <td style="display: none" th:text="${i.getLat()}" id="lat"></td>
+            <td style="display: none">,</td>
         </tr>
         </tbody>
     </table>
 </div>
+
+
 </body>
 
 
@@ -94,6 +136,67 @@
         var select_val1 = get_single_checked_val("num1")
         console.log('select_val1 = ', select_val1)
     }
+</script>
+
+<script type="text/javascript">
+    // 百度地图API功能
+    map = new BMap.Map("allmap", {minZoom:1, MaxZoom:8});
+    // var marker = new BMap.Marker(point);  // 创建标注
+    // map.addOverlay(marker);              // 将标注添加到地图中
+    map.centerAndZoom(new BMap.Point(116.417854,39.921988), 1);
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+    var covid_data = document.getElementById("table").innerHTML.split(",");
+    var covid_data_length = covid_data.length - 1;
+    var i = 1;
+    for(; i < covid_data_length; i++){
+        var country = covid_data[i].split("\n")[3];
+        var confirmed = covid_data[i].split("\n")[4];
+        var deaths = covid_data[i].split("\n")[5];
+        var active = covid_data[i].split("\n")[6];
+        var recovered = covid_data[i].split("\n")[7];
+
+        var longg = covid_data[i].split("\n")[9];
+        var lat = covid_data[i].split("\n")[10];
+
+
+        var longg1 = longg.split(" ")[15].split(">")[1];
+
+        var lat1 = lat.split(" ")[15].split(">")[1];
+
+
+
+        var marker = new BMap.Marker(new BMap.Point(parseFloat(longg1), parseFloat(lat1)));
+        var content = country + "\n\n" + "确诊人数:" + confirmed + "\n" + "死亡人数:" + deaths +
+            "\n" + "现存确诊人数;" + active + "\n" + "治愈人数:" + recovered;
+
+
+        var opts = {
+            width : 200,     // 信息窗口宽度
+            height: 100,     // 信息窗口高度
+            title : "" , // 信息窗口标题
+            enableMessage:true,//设置允许信息窗发送短息
+            message:"亲耐滴，晚上一起吃个饭吧？戳下面的链接看下地址喔~"
+        };
+
+        map.addOverlay(marker);
+
+        addClickHandler(content, marker);
+
+    }
+
+    function addClickHandler(content,marker){
+        marker.addEventListener("click",function(e){
+            openInfo(content,e)}
+        );
+    }
+    function openInfo(content,e){
+        var p = e.target;
+        var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat);
+        var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象
+        map.openInfoWindow(infoWindow,point); //开启信息窗口
+    }
+
 </script>
 
 </html>

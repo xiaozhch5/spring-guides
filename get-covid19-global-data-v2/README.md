@@ -9,6 +9,8 @@
 * 百度翻译开放API
 * HTTP GET
 
+<font color=red> 注：mysql也可以用8.0版本，不过要在POM文件中将mysql-connector-java这个包的版本改为8.0的。</font>
+
 基本思路：
 基于springboot的定时功能，使用`HTTP GET`获取json格式疫情数据，
 通过处理后调用`百度翻译API`将国家名称转化为中文，最后将获取到的数据通过Spring Data Jpa映射写入到mysql数据库中。
@@ -70,4 +72,15 @@ spring.jackson.serialization.indent_output=true
 ![5](img/5.png)
 ## 感谢
 如果你觉得本项目对你有用的话，欢迎给个star呢。
+
+## 2020.04.08更新
+调用百度地图API，将数据标记在地图中，得到如下效果：
+![8](img/8.png)
+更新后的项目除了需要完成上述配置之外，还要申请一个百度地图开发者账号，也就是获取百度地图AK。
+
+然后更换src/main/resources/templates/index.html第十五行中ak后面的一串字符串为你申请到的AK：
+```javascript
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=WUyyGnd4NcFKwKo78u7NgWb0ncVa9AzB"></script>
+```
+修改之后即可运行。
 
