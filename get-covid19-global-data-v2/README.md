@@ -1,4 +1,5 @@
 # 通过springboot实时获取新型冠状病毒全球数据并通过网页展示（2020.04.08更新）
+展示示例：[covid.lrting.top/covid19](http://covid.lrting.top/covid19)
 ## 2020.04.08更新内容
 调用百度地图API，将数据标记在地图中，得到如下效果：
 ![8](img/8.png)
@@ -10,9 +11,9 @@
 ```
 修改之后即可运行。
 
-展示示例：[covid.lrting.top/covid19](http://covid.lrting.top/covid19)
+##项目概览
 
-本文涉及到的技术要点以及相关版本：
+本项目涉及到的技术要点以及相关版本：
 * springboot：2.2.6.RELEASE
 * tomcat：8.0
 * mysql：5.7
