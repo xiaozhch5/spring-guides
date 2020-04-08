@@ -1,6 +1,6 @@
 # 通过springboot实时获取新型冠状病毒全球数据并通过网页展示
 
-展示示例：covid.lrting.top/covid19
+展示示例：[covid.lrting.top/covid19](http://covid.lrting.top/covid19)
 
 本文涉及到的技术要点以及相关版本：
 * springboot：2.2.6.RELEASE
@@ -32,7 +32,7 @@ https://www.cnblogs.com/BHfeimao/p/6496574.html
 
 &emsp;进入到mysql中，创建一个spring-guides数据库。
 
-（2）申请百度翻译开发者账号：https://api.fanyi.baidu.com/，申请百度通用翻译API，可以获取到APP ID和密钥。
+（2）申请百度翻译开发者账号：https://api.fanyi.baidu.com/ ，申请百度通用翻译API，可以获取到APP ID和密钥。
 用于将国家名称翻译为中文。
 
 （3）将本项目下载下来之后，解压到某个位置，将本项目导入IDEA，具体为：
