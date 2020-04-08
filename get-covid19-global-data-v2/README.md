@@ -1,4 +1,14 @@
-# 通过springboot实时获取新型冠状病毒全球数据并通过网页展示
+# 通过springboot实时获取新型冠状病毒全球数据并通过网页展示（2020.04.08更新）
+## 2020.04.08更新内容
+调用百度地图API，将数据标记在地图中，得到如下效果：
+![8](img/8.png)
+更新后的项目除了需要完成下面的配置之外，还要申请一个百度地图开发者账号，也就是获取百度地图AK。
+
+然后更换src/main/resources/templates/index.html第十五行中ak后面的一串字符串为你申请到的AK：
+```javascript
+    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=WUyyGnd4NcFKwKo78u7NgWb0ncVa9AzB"></script>
+```
+修改之后即可运行。
 
 展示示例：[covid.lrting.top/covid19](http://covid.lrting.top/covid19)
 
@@ -73,14 +83,5 @@ spring.jackson.serialization.indent_output=true
 ## 感谢
 如果你觉得本项目对你有用的话，欢迎给个star呢。
 
-## 2020.04.08更新
-调用百度地图API，将数据标记在地图中，得到如下效果：
-![8](img/8.png)
-更新后的项目除了需要完成上述配置之外，还要申请一个百度地图开发者账号，也就是获取百度地图AK。
 
-然后更换src/main/resources/templates/index.html第十五行中ak后面的一串字符串为你申请到的AK：
-```javascript
-    <script type="text/javascript" src="//api.map.baidu.com/api?v=2.0&ak=WUyyGnd4NcFKwKo78u7NgWb0ncVa9AzB"></script>
-```
-修改之后即可运行。
 
