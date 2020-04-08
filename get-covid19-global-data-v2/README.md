@@ -1,4 +1,7 @@
 # 通过springboot实时获取新型冠状病毒全球数据并通过网页展示
+
+展示示例：covid.lrting.top/covid19
+
 本文涉及到的技术要点以及相关版本：
 * springboot：2.2.6.RELEASE
 * tomcat：8.0
