@@ -5,4 +5,4 @@
 源码：https://github.com/xiaozhch5/spring-guides/tree/master/get-covid19-global-data-v2
 
 效果展示：http://covid.lrting.top/covid19/
-![pic](pic.PNG)
+![pic](https://github.com/xiaozhch5/spring-guides/blob/master/pic.PNG)
